@@ -1,0 +1,33 @@
+[project]
+name = "wiki_provenance"
+version = "0.0.0"
+description = "A Guardrails AI validator that detects and removes hallucinated text based off Wikipedia"
+authors = [
+    {name = "Guardrails AI", email = "contact@guardrailsai.com"}
+]
+license = {file = "LICENSE"}
+readme = "README.md"
+requires-python = ">= 3.8.1"
+dependencies = [
+    "guardrails-ai>=0.4.0",
+    "litellm>=1.23.0",
+    "nltk",
+    "wikipedia"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pyright",
+    "pytest",
+    "ruff"
+]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-rP"
+testpaths = [
+    "test"
+]
+
+[tool.pyright]
+include = ["validator"]
